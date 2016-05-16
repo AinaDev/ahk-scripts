@@ -1,0 +1,228 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;                      Выход по нажатию ESC
+;
+; Example #3: Detection of single, double, and triple-presses of a hotkey. This
+; allows a hotkey to perform a different operation depending on how many times
+; you press it:
+~Esc::
+if winc_presses > 0 ; SetTimer already started, so we log the keypress instead.
+{
+winc_presses += 1
+return
+}
+; Otherwise, this is the first press of a new series. Set count to 1 and start
+; the timer:
+winc_presses = 1
+SetTimer, KeyWinC, 600 ; Wait for more presses within a 600 millisecond window.
+return
+
+KeyWinC:
+SetTimer, KeyWinC, off
+
+if winc_presses = 2 ; The key was pressed twice.
+{
+Send, !{f4} ;
+}
+else if winc_presses > 2
+{
+send !{
+  Sleep, 200
+DllCall("LockWorkStation")
+Sleep, 200
+SendMessage,0x112,0xF170,2,,Program Manager}
+}
+
+winc_presses = 0
+return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+!t::
+   Run, cmd
+Return
+
+!g::
+   run, ""
+Return
+
+!q::
+   Send, exit {enter}
+Return
+
+:*:ftw::Free the whales
+
+::btw::By the way  
+
+::pp::ping 
+
+
+;!c::
+;   Run, calc        ; Калькулятор 
+;Return
+
+
+
+!p::
+   Run, "D:\putty" ; 
+Return
+
+!s::
+   Run, 
+Return
+
+!b::
+   Run, "C:\Program Files (x86)\"
+Return
+
+Alt & 4::
+   Run, "D:\111\111\111"
+Return
+
+Alt & 8::
+   Run, "D:\111\111\111"
+Return
+
+Alt & 9::
+   Run, "D:\111\111\111"
+Return
+
+Alt & 0::
+   Run, "D:\111\111\111"
+Return
+
+
+
+
+!d::
+   Run, %A_MyDocuments%
+Return
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;
+!x:: ;
+Send, alex ;
+  Sleep, 200 ;
+  Send, {Enter} 
+return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;~!::
+;if winc_presses > 0 ; SetTimer already started, so we log the keypress instead.
+;{
+;winc_presses += 1
+;return
+;}
+;; Otherwise, this is the first press of a new series. Set count to 1 and start
+;; the timer:
+;winc_presses = 1
+;SetTimer, KeyWinC, 600 ; Wait for more presses within a 600 millisecond window.
+;return
+;
+;KeyWinB:
+;SetTimer, KeyWinB, off
+;
+;if winc_presses = 2 ; The key was pressed twice.
+;{
+;Send, ^c ;
+;}
+;else if winc_presses > 2
+;{
+;send !{a}
+;}
+;
+;winc_presses = 0
+;return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+; ^b::                                      ; Ctrl & b Hotkey
+;   send, {ctrl down}c{ctrl up}             ; Copies the selected text. ^c could be used aswell, but this method is more secure.
+;   SendInput, [b]{ctrl down}v{ctrl up}[/b] ; Wraps the selected text in bbcode (forum) Bold tags.
+;Return                                     ; This ends the hotkey. The code below this point will not get triggered.
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Notepad
+#IfWinActive Untitled - Notepad
+Space & w::
+   Send, {Up} ;
+Return
+Space & s::
+   Send, {Down} ;
+Return
+Space & a::
+   Send, {Left} ;
+Return
+ Space & d::  
+   Send, {Right} ;
+Return
+#IfWinActive
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; 
+#c:: 
+Loop, 5
+    MouseClick,
+
+!e::
+MouseClick, left, X, Y, 500, 10 ;
+return ;
+
+
+
+
+RCtrl & Numpad0::             ; 
+{
+Sleep, 200
+DllCall("LockWorkStation")
+Sleep, 200
+SendMessage,0x112,0xF170,2,,Program Manager
+}
+
+
+
+
+
+!a:: ;
+Send, pass ;
+return
+
+!(num_or_sign):: ;
+Send, su - ;
+   Sleep, 200 ;
+Send, {Enter} ;
+   Sleep, 200 ;
+Send, pass ;
+   Sleep, 200 ;
+Send, {Enter} ;
+   Sleep, 200 ;
+Send, c ;
+   Sleep, 200 ;
+Send, {Enter} ;
+return
+
+!c:: ; name_of_soft
+Send,pass ;
+   Sleep, 200 ;
+   Send, {Enter} ;
+  return
+
+!y:: ; name_of_soft
+Send, pass ; 
+   Sleep, 200 ;
+   Send, {Enter} ;
+  return
+
+!z:: ; 
+Send, password ;
+  Sleep, 200 ;
+  Send, {Enter} 
+return
+

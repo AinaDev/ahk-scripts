@@ -38,191 +38,78 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 !t::
-   Run, cmd
-Return
-
-!g::
-   run, ""
+   Run, %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe
 Return
 
 !q::
    Send, exit {enter}
 Return
 
-:*:ftw::Free the whales
-
-::btw::By the way  
-
-::pp::ping 
-
-
-;!c::
-;   Run, calc        ; Калькулятор 
-;Return
-
-
-
 !p::
-   Run, "D:\putty" ; 
+   Run, "C:\Program Files (x86)\PRTG Network Monitor\Enterprise Console\PRTG Enterprise Console.exe" ; 
 Return
+
+!d:: 
+   Run, "%SystemRoot%\system32\dsa.msc" ;
+Return
+
+!h:: 
+   Run, "%windir%\system32\dhcpmgmt.msc" ;
+Return
+
+
 
 !s::
-   Run, 
+
+   Run, *runas "%windir%\sysWOW64\WindowsPowerShell\v1.0\PowerShell_ISE.exe" ;
 Return
 
-!b::
-   Run, "C:\Program Files (x86)\"
+!a:: 
+	Send, another_pass ;
+Return 
+
+!c::
+	Send, password ;
+Return 
+
+!k::
+	Run, "D:\programm" ;
+Return 
+
+!9::
+	Run, "\\ITSRVxxx" ;
 Return
 
-Alt & 4::
-   Run, "D:\111\111\111"
+!0::
+  Run, "\\ip_address_to_folder" ;
 Return
 
-Alt & 8::
-   Run, "D:\111\111\111"
+!5::
+  Run, "D:\4work\RDP\Xfloor_wtware.rdp" ;
 Return
 
-Alt & 9::
-   Run, "D:\111\111\111"
+!l::
+
+   Run, *runas "D:\4work\dsac" ;
 Return
 
-Alt & 0::
-   Run, "D:\111\111\111"
-Return
+!3::
+  Send, su - ;
+Sleep, 200 ;
+  Send, {Enter} ;
+Sleep, 200 ;
+  Send, xxxxxx ;
+Sleep, 200 ;
+  Send, {Enter} ;
+  Return
+
+!4::
+  Send, {!}vhjjbn3 ;
+Return 
+
+!n::
+  Run, "C:\totalcmd\TOTALCMD64.EXE" ;
+Return 
 
 
-
-
-!d::
-   Run, %A_MyDocuments%
-Return
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-;
-!x:: ;
-Send, alex ;
-  Sleep, 200 ;
-  Send, {Enter} 
-return
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;~!::
-;if winc_presses > 0 ; SetTimer already started, so we log the keypress instead.
-;{
-;winc_presses += 1
-;return
-;}
-;; Otherwise, this is the first press of a new series. Set count to 1 and start
-;; the timer:
-;winc_presses = 1
-;SetTimer, KeyWinC, 600 ; Wait for more presses within a 600 millisecond window.
-;return
-;
-;KeyWinB:
-;SetTimer, KeyWinB, off
-;
-;if winc_presses = 2 ; The key was pressed twice.
-;{
-;Send, ^c ;
-;}
-;else if winc_presses > 2
-;{
-;send !{a}
-;}
-;
-;winc_presses = 0
-;return
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-
-; ^b::                                      ; Ctrl & b Hotkey
-;   send, {ctrl down}c{ctrl up}             ; Copies the selected text. ^c could be used aswell, but this method is more secure.
-;   SendInput, [b]{ctrl down}v{ctrl up}[/b] ; Wraps the selected text in bbcode (forum) Bold tags.
-;Return                                     ; This ends the hotkey. The code below this point will not get triggered.
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Notepad
-#IfWinActive Untitled - Notepad
-Space & w::
-   Send, {Up} ;
-Return
-Space & s::
-   Send, {Down} ;
-Return
-Space & a::
-   Send, {Left} ;
-Return
- Space & d::  
-   Send, {Right} ;
-Return
-#IfWinActive
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; 
-#c:: 
-Loop, 5
-    MouseClick,
-
-!e::
-MouseClick, left, X, Y, 500, 10 ;
-return ;
-
-
-
-
-RCtrl & Numpad0::             ; 
-{
-Sleep, 200
-DllCall("LockWorkStation")
-Sleep, 200
-SendMessage,0x112,0xF170,2,,Program Manager
-}
-
-
-
-
-
-!a:: ;
-Send, pass ;
-return
-
-!(num_or_sign):: ;
-Send, su - ;
-   Sleep, 200 ;
-Send, {Enter} ;
-   Sleep, 200 ;
-Send, pass ;
-   Sleep, 200 ;
-Send, {Enter} ;
-   Sleep, 200 ;
-Send, c ;
-   Sleep, 200 ;
-Send, {Enter} ;
-return
-
-!c:: ; name_of_soft
-Send,pass ;
-   Sleep, 200 ;
-   Send, {Enter} ;
-  return
-
-!y:: ; name_of_soft
-Send, pass ; 
-   Sleep, 200 ;
-   Send, {Enter} ;
-  return
-
-!z:: ; 
-Send, password ;
-  Sleep, 200 ;
-  Send, {Enter} 
-return
 

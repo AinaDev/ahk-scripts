@@ -1,0 +1,142 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+;                      Auoia ii ia?aoe? ESC
+;
+; Example #3: Detection of single, double, and triple-presses of a hotkey. This
+; allows a hotkey to perform a different operation depending on how many times
+; you press it:
+~Esc::
+if winc_presses > 0 ; SetTimer already started, so we log the keypress instead.
+{
+winc_presses += 1
+return
+}
+; Otherwise, this is the first press of a new series. Set count to 1 and start
+; the timer:
+winc_presses = 1
+SetTimer, KeyWinC, 600 ; Wait for more presses within a 600 millisecond window.
+return
+
+KeyWinC:
+SetTimer, KeyWinC, off
+
+if winc_presses = 2 ; The key was pressed twice.
+{
+Send, !{f4} ;
+}
+else if winc_presses > 2
+{
+send !{
+  Sleep, 200
+DllCall("LockWorkStation")
+Sleep, 200
+SendMessage,0x112,0xF170,2,,Program Manager}
+}
+
+winc_presses = 0
+return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+!t::
+   Run, %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe
+Return
+
+
+!d:: 
+   Run, "%SystemRoot%\system32\dsa.msc" ;
+Return
+
+!h:: 
+   Run, "%windir%\system32\dhcpmgmt.msc" ;
+Return
+
+
+
+!s::
+   Run, *runas "%windir%\sysWOW64\WindowsPowerShell\v1.0\PowerShell_ISE.exe" ;
+Return
+
+
+!q::
+  Send, exit ;
+  Send, {Enter} ;
+  Return
+
+
+!n::
+  Run, "C:\totalcmd\TOTALCMD64.EXE" ;
+Return 
+
+!o::
+  Run, "C:\Users\Пользователь\AppData\Local\Programs\Opera\Launcher" ;
+Return 
+
+!1::
+	Send, {#}alashaastana {Space} ;
+    	Send, {#}рестораналаша {Space} ;
+    	Send, {#}восточнаякухняастана {Space} ;
+    	Send, {#}кудасходитьастана {Space} ;
+    	Send, {#}восточнаякухня {Space} ;
+    	Send, {#}узбекскаякухня {Space} ;
+    	Send, {#}ресторанастана {Space} ;
+    	Send, {#}вкусноастана {Space} ;
+    	Send, {#}комплексныеобеды {Space} ;
+    	Send, {#}казахскаякухня {Space} ;
+    	Send, {#}пловастана {Space} ;
+    	Send, {#}национальнаякухня {Space} ;
+    	Send, {#}kazinncom {Space} ;
+    	Send, {Enter} 
+  	Return
+
+!2::
+	;ARHIV BAND
+	Send, {#}arhivband {Space} ;
+	Send, {#}arhivliveband {Space} ;
+	Send, {#}livebandarhiv {Space} ;
+	Send, {#}звездыказахстана {Space} ;
+	Send, {#}живойзвук {Space} ;
+        Send, {#}кавергруппа {Space} ;
+	Send, {#}kazinncom {Space} ;
+	Send, {Enter} ;
+	Return
+
+!3::
+	;ASTANA CLEAN SERVICE
+  	Send, {#}astanacleanservice {Space} ;
+  	Send, {#}фабрикачисткиковров {Space} ;
+  	Send, {#}стиркаковровастана {Space} ;
+  	Send, {#}чисткаковровастана {Space} ;
+  	Send, {#}химчисткаковровастана {Space} ;
+  	Send, {#}коврыастана {Space} ;
+  	Send, {#}стиркаковровастана {Space} ;
+  	Send, {#}kazinncom {Space} ;
+  	Send, {Enter} ;
+	Return
+
+!4:: 
+	;ZINMARKET 
+
+    	Send, {#}zinmarket {Space} ;
+    	Send, {#}zinmarketkz {Space} ;
+    	Send, {#}berekelibaspana {Space} ;
+   	  Send, {#}берекелiбаспана {Space} ;
+    	Send, {#}жкберекелiбаспана {Space} ;
+    	Send, {#}риэлторастана {Space} ;
+    	Send, {#}риэлторскиеуслуги {Space} ;
+    	Send, {#}риэлторскоеагентство {Space} ;
+    	Send, {#}жильевастане {Space} ;
+    	Send, {#}жильеастана {Space} ;
+    	Send, {#}квартираастана {Space} ;
+    	Send, {#}квартирыастана {Space} ;
+    	Send, {#}домастана {Space} ;
+    	Send, {#}нурлыжер {Space} ;
+    	Send, {#}купитьквартирувастане {Space} ;
+    	Send, {#}недвижимостьвастане {Space} ;
+    	Send, {#}недвижимостьастана {Space} ;
+    	Send, {#}недвижимостьастаны {Space} ;
+    	Send, {#}квартиравипотеку {Space} ;
+    	Send, {#}квартиравкредит {Space} ;
+    	Send, {#}kazinncom {Space} ;
+    	Send, {Enter} ;
+    	Return
+

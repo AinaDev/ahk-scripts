@@ -76,9 +76,6 @@ Return
 	Run, "D:\programm" ;
 Return 
 
-!9::
-	Run, "\\ITSRVxxx" ;
-Return
 
 !0::
   Run, "\\ip_address_to_folder" ;
@@ -93,19 +90,6 @@ Return
    Run, *runas "D:\4work\dsac" ;
 Return
 
-!3::
-  Send, su - ;
-Sleep, 200 ;
-  Send, {Enter} ;
-Sleep, 200 ;
-  Send, xxxxxx ;
-Sleep, 200 ;
-  Send, {Enter} ;
-  Return
-
-!4::
-  Send, {!}vhjjbn3 ;
-Return 
 
 !n::
   Run, "C:\totalcmd\TOTALCMD64.EXE" ;
